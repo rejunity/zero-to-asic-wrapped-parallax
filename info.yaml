@@ -1,12 +1,14 @@
----
+--- 
 # information
 project:
   title: "Parallax"
   description: "Scrolling procedural background using several LFSRs. VGA 640x480@70hz"
   picture: docs/Parallax.png
   author: "Renldas Zioma"
-  github: https://github.com/rejunity/zero-to-asic-wrapped-parallax
   license: LICENSE
+
+# optional interfaces you want to use: gpio, la1, la2, la3, irq, clk2 & wishbone
+interfaces: ['la1', 'gpio']
 
 # test within caravel
 caravel_test:
