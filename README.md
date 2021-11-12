@@ -9,6 +9,10 @@ The code is base upon the following FPGA examples:
 * [Will Green's Project F](https://projectf.io/sitemap/#fpga-graphics)
 * [Steven Hugg's FPGA examples for 8bitworkshop.com](https://github.com/sehugg/fpga-examples)
 
+Hopefully it looks something like this:
+
+![vga clock](docs/Parallax.png)
+
 # License
 
 This project is [licensed under Apache 2](LICENSE)
