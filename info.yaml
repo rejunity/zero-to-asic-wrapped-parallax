@@ -1,4 +1,4 @@
---- 
+---
 # information
 project:
   title: "Parallax"
@@ -20,7 +20,7 @@ caravel_test:
 
 # module test
 module_test:
-  recipe: "test_tb"
+  recipe: "test"
   directory: "zero-to-asic/Parallax"
   makefile: "Makefile"
 
