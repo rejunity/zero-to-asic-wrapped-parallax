@@ -58,15 +58,15 @@ void main()
         while (reg_mprj_xfer == 1);
 
         // activate the project by setting the 1st bit of 2nd bank of LA - depends on the project ID
-        reg_la1_iena = 0; // input enable off
-        reg_la1_oenb = 0; // output enable on
-        reg_la1_data = 1 << ID;
+        reg_la0_iena = 0; // input enable off
+        reg_la0_oenb = 0; // output enable on
+        reg_la0_data = 1 << ID;
 
         // reset design with 0bit of 1st bank of LA
-        reg_la0_oenb = 0;
-        reg_la0_iena = 0;
-        reg_la0_data = 1;
-        reg_la0_data = 0;
+        reg_la1_oenb = 0;
+        reg_la1_iena = 0;
+        reg_la1_data = 1;
+        reg_la1_data = 0;
 
         // no need for anything else as this design is free running.
 }
