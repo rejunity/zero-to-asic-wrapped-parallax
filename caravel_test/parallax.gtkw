@@ -1,0 +1,39 @@
+[*]
+[*] GTKWave Analyzer v3.3.111 (w)1999-2020 BSI
+[*] Fri Nov 12 17:34:48 2021
+[*]
+[dumpfile] "/home/matt/work/asic-workshop/shuttle3-mpw-3/caravel_user_project/verilog/dv/caravel_test/wrapped_parallax.vcd"
+[dumpfile_mtime] "Fri Nov 12 17:34:48 2021"
+[dumpfile_size] 802197504
+[savefile] "/home/matt/work/asic-workshop/shuttle3-mpw-3/caravel_user_project/verilog/dv/caravel_test/parallax.gtkw"
+[timestart] 0
+[size] 2355 1074
+[pos] 395 179
+*-26.400000 100000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] wrapped_parallax_tb.
+[treeopen] wrapped_parallax_tb.uut.
+[treeopen] wrapped_parallax_tb.uut.mprj.
+[treeopen] wrapped_parallax_tb.uut.mprj.wrapped_parallax_9.
+[sst_width] 343
+[signals_width] 192
+[sst_expanded] 1
+[sst_vpaned_height] 320
+@28
+wrapped_parallax_tb.clock
+wrapped_parallax_tb.RSTB
+wrapped_parallax_tb.power1
+wrapped_parallax_tb.power2
+wrapped_parallax_tb.power3
+wrapped_parallax_tb.power4
+wrapped_parallax_tb.flash_clk
+wrapped_parallax_tb.flash_csb
+wrapped_parallax_tb.flash_io0
+wrapped_parallax_tb.flash_io1
+@29
+wrapped_parallax_tb.uut.mprj.wrapped_parallax_9.active
+@28
+wrapped_parallax_tb.hsync
+wrapped_parallax_tb.rgb[2:0]
+wrapped_parallax_tb.vsync
+[pattern_trace] 1
+[pattern_trace] 0
