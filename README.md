@@ -1,15 +1,13 @@
-# Information about your project
+# Parallax on ASIC
 
-This is a template project you can clone and use to take part in the multi project submission to the
-Google/Efabless/Skywater shuttle.
+This is a small experimental ASIC project that renders procedural 2D scrolling terrain with stars using LFSRs and generates VGA 640x480 signal.
 
-The tools that will test and create the aggregated design are here: https://github.com/mattvenn/multi_project_tools
+This experiment is a part of multi project submission to the Google/Efabless/Skywater shuttle.
 
-# Project info.yaml
-
-You need to fill in the fields of [info.yaml](info.yaml)
-
-See [here for more information](https://github.com/mattvenn/multi_project_tools/blob/main/docs/project_spec.md)
+The code is base upon the following FPGA examples:
+* [Matt's VGA Clock repo](https://github.com/mattvenn/vga-clock)
+* [Will Green's Project F](https://projectf.io/sitemap/#fpga-graphics)
+* [Steven Hugg's FPGA examples for 8bitworkshop.com](https://github.com/sehugg/fpga-examples)
 
 # License
 
