@@ -21,6 +21,8 @@
 `include "caravel_netlists.v"
 `include "spiflash.v"
 
+`define SHORT_TEST // check just a portion of the frame, instead of 2 full frames
+
 module wrapped_parallax_tb;
 	reg clock;
 	reg RSTB;
@@ -79,7 +81,7 @@ module wrapped_parallax_tb;
 	// always @(mprj_io) begin
 	// 	#1 $display("RGB=%b   HSYNC=%b VSYNC=%b", rgb, hsync, vsync);
 	// 	if (rgb != 0 && vsync != 1)
-	// 		$display("004 failed, RGB signal inside VSYNC");
+	// 		$display("005 failed, RGB signal inside VSYNC");
 	// 	if (rgb != 0 && hsync != 1)
 	// 		$display("005 failed, RGB signal inside HSYNC");
 	// end
@@ -87,19 +89,23 @@ module wrapped_parallax_tb;
 	initial begin
 		wait(hsync == 1);
 		#1;
-		repeat (2) begin // check 2 frames
+		`ifdef SHORT_TEST
+		repeat (1) begin // check just a portion of the frame
+		`else
+		repeat (1) begin // check 2 frames
+		`endif
 			if (hsync != 1 ||
 				vsync != 1 ||
 				rgb != 0) $display("000 failed! mprj_io=%b", mprj_io);
 			$display("Vertical retrace started");
 
-			// VBLANK
+			// VBLANK FRONT porch
 			repeat (9) begin
 				wait(hsync == 0);
 				wait(hsync == 1);
 				if (vsync != 1 ||
 					rgb != 0) $display("001 failed! mprj_io=%b", mprj_io);
-				$display("VBLANK line started");
+				$display("VBLANK FRONT porch line started");
 			end
 
 			// VSYNC
@@ -113,18 +119,35 @@ module wrapped_parallax_tb;
 				$display("VSYNC line started");
 			end
 			#1 wait(vsync == 1);
-			$display("Visible portion of the frame started");
 
-			// ACTIVE
-			repeat (508) begin
+			// VBLANK BACK porch
+			repeat (28) begin
 				wait(hsync == 0);
 				wait(hsync == 1);
-				if (vsync != 1) $display("003 failed! mprj_io=%b", mprj_io);
+				if (vsync != 1 ||
+					rgb != 0) $display("003 failed! mprj_io=%b", mprj_io);
+				$display("VBLANK BACK porch line started");
+			end
+
+			// ACTIVE
+			$display("Visible portion of the frame started");
+			`ifdef SHORT_TEST
+			repeat (10) begin
+			`else
+			repeat (480) begin
+			`endif
+				wait(hsync == 0);
+				wait(hsync == 1);
+				if (vsync != 1) $display("004 failed! mprj_io=%b", mprj_io);
 				$display("ACTIVE line started");
 			end
 
+			`ifdef SHORT_TEST
+			`else
 			$display("Frame ended");
+			`endif
 		end
+
 
 		`ifdef GL
 		$display("Monitor: VGA signal (GL) Passed");
