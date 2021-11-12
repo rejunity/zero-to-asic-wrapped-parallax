@@ -18,7 +18,7 @@ caravel_test:
 
 # module test
 module_test:
-  recipe: "all"
+  recipe: "test_tb"
   directory: "zero-to-asic/Parallax"
   makefile: "Makefile"
 
