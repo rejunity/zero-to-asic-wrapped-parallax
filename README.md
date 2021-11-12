@@ -11,7 +11,7 @@ The code is base upon the following FPGA examples:
 
 Hopefully it looks something like this:
 
-![vga clock](docs/Parallax.png)
+![vga clock](docs/Parallax.gif)
 
 # License
 
