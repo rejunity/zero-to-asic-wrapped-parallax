@@ -109,7 +109,7 @@ module wrapped_parallax(
     // Use the buffered outputs for your module's outputs.
     parallax i_parallax (
         .clk(wb_clk_i),
-        .reset(la_data_in[0]),
+        .reset(la1_data_in[0]),
 
         .hsync(buf_io_out[8]),  // skip 0..7 pins
         .vsync(buf_io_out[9]),
