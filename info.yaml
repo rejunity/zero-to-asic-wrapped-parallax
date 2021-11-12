@@ -1,25 +1,25 @@
---- 
+---
 # information
-project: 
-  title: "title"
-  description: "description"
-  picture: docs/empty.png
-  author: "Author"
-  github: https://github.com/link
+project:
+  title: "Parallax"
+  description: "Scrolling procedural background using several LFSRs. VGA 640x480@70hz"
+  picture: docs/Parallax.png
+  author: "Renldas Zioma"
+  github: https://github.com/rejunity/zero-to-asic-wrapped-parallax
   license: LICENSE
 
 # test within caravel
 caravel_test:
-  recipe: "coco_test"
+  recipe: "all"
   directory: "caravel_test"
-  id: 1
-  module_name: "wrapped_project"
-  instance_name: "wrapped_project"
+  id: 9
+  module_name: "wrapped_parallax"
+  instance_name: "wrapped_parallax"
 
 # module test
 module_test:
-  recipe: "all" 
-  directory: "project directory"
+  recipe: "all"
+  directory: "zero-to-asic/Parallax"
   makefile: "Makefile"
 
 # run the wrapper formal proof
@@ -34,11 +34,13 @@ openlane:
 # source required for various configs and module instantiation
 source:
     - wrapper.v
-    - other source files here
+    - zero-to-asic/Parallax.v
+    - zero-to-asic/VgaSyncGen.v
 
 # gds - check size = 300x300, nothing on metal 5, do a DRC, check 141 tristate buffers, check LVS
 gds:
   directory: "gds"
-  gds_filename: "project.gds"
-  lvs_filename: "project.lvs.powered.v"
-  lef_filename: "project.lef"
+  gds_filename: "wrapped_parallax.gds"
+  lvs_filename: "wrapped_parallax.lvs.powered.v"
+  lef_filename: "wrapped_parallax.lef"
+

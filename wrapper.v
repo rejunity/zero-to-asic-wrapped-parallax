@@ -1,9 +1,9 @@
 `default_nettype none
 `ifdef FORMAL
-    `define MPRJ_IO_PADS 38    
+    `define MPRJ_IO_PADS 38
 `endif
 // update this to the name of your module
-module wrapped_project(
+module wrapped_parallax(
 `ifdef USE_POWER_PINS
     inout vccd1,	// User area 1 1.8V supply
     inout vssd1,	// User area 1 digital ground
@@ -36,7 +36,7 @@ module wrapped_project(
 
     // extra user clock
     input wire user_clock2,
-    
+
     // active input, only connect tristated outputs if this is high
     input wire active
 );
@@ -71,9 +71,18 @@ module wrapped_project(
     // permanently set oeb so that outputs are always enabled: 0 is output, 1 is high-impedance
     assign buf_io_oeb = {`MPRJ_IO_PADS{1'b0}};
 
-    // Instantiate your module here, 
-    // connecting what you need of the above signals. 
+    // Instantiate your module here,
+    // connecting what you need of the above signals.
     // Use the buffered outputs for your module's outputs.
 
-endmodule 
+    parallax i_parallax (
+        .clk(wb_clk_i),
+        .reset(la_data_in[0]),
+
+        .hsync(buf_io_out[8]),  // skip 0..7 pins
+        .vsync(buf_io_out[9]),
+        .rgb(buf_io_out[12:10])
+    );
+
+endmodule
 `default_nettype wire

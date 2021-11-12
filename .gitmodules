@@ -1,0 +1,3 @@
+[submodule "zero-to-asic"]
+	path = zero-to-asic
+	url = https://github.com/rejunity/zero-to-asic

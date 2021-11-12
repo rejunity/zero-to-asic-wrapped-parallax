@@ -5,10 +5,11 @@ mode prove
 smtbmc
 
 [script]
-read -formal wrapper.v rest of your source files.v
-prep -top wrapped_project
+read -formal wrapper.v Parallax.v VgaSyncGen.v
+prep -top wrapped_parallax
 
 [files]
 wrapper.v
 properties.v
-rest of your source files.v
+zero-to-asic/Parallax/Parallax.v
+zero-to-asic/Parallax/VgaSyncGen.v
