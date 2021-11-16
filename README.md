@@ -1,6 +1,6 @@
 # Parallax on ASIC
 
-This is a small experimental ASIC project that renders procedural 2D scrolling terrain with stars using LFSRs and generates VGA 640x480@72Hz signal.
+This is a small experimental ASIC project that renders procedural 2D scrolling terrain with stars using LFSRs and directly generates VGA 640x480@72Hz signal.
 
 This experiment is a part of multi project submission to the [Google/Efabless/Skywater shuttle](https://efabless.com/open_shuttle_program/3).
 
